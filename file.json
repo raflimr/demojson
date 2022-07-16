@@ -1,0 +1,119 @@
+[
+    {
+        "idLokasi": "1",
+        "lat":-7.3477651,
+        "long":107.7947223,
+        "namaTempat":" Desa Cibodas",
+        "keterangan":"22 unit rumah terendam,41 kk / 98 jiwa "
+
+    },
+    {
+        "idLokasi": "2",
+        "lat":-7.2254047,
+        "long":107.9047094,
+        "namaTempat":"Desa Kota Kulon",
+        "keterangan":"40 unit rumah terendam, 7 unit rumah rusak berat  ",
+    },
+    {
+        "idLokasi": "3",
+        "lat":-7.2254046,
+        "long":107.8981433,
+        "namaTempat":"Desa Muara Sanding",
+        "keterangan":"2 unit rumah terdampak, 2 unit rumah rusak berat, 2 unit rumah terendam,15 kk / 71 jiwa "
+    },
+    {
+        "idLokasi": "4",
+        "lat":-7.2254032,
+        "long":107.8718782,
+        "namaTempat":"Desa Sukakarya",
+        "keterangan":" 103 unit rumah terendam,"
+    },
+    {
+        "idLokasi": "5",
+        "lat":-7.2041763,
+        "long":107.9024956,
+        "namaTempat":"Desa Haurpanggung",
+        "keterangan":" 28 mengungsi, 1 perempuan ibu hamil selamat, 2 perempuan balita selamat"
+
+    },
+    {
+        "idLokasi": "6",
+        "lat":-7.2435283,
+        "long":107.78143,
+        "namaTempat":"Desa Sukajaya",
+        "keterangan":" 10 unit rumah terendam"
+        
+    },
+    {
+        "idLokasi": "7",
+        "lat":-7.2095404,
+        "long":107.8886755,
+        "namaTempat":"Desa Jayawaras",
+        "keterangan":" Terdampak : 71 KK / 254 Jiwa"
+    
+    },
+    {
+        "idLokasi": "8",
+        "lat":-7.2162234,
+        "long":107.9217015,
+        "namaTempat":"Desa Suci",
+        "keterangan":" 74 Unit Rumah Terendam "
+    
+    },
+    {
+        "idLokasi": "9",
+        "lat":-7.2141249,
+        "long":107.9210916,
+        "namaTempat":"Desa Suci Kaler",
+        "keterangan":"30 Unit Rumah Terendam "
+    
+    },
+    {
+        "idLokasi": "10",
+        "lat":-7.1996301,
+        "long":107.9416703,
+        "namaTempat":"Desa Sindanglaya",
+        "keterangan":"1 Unit Fasilitas Umum Terdampak "
+    
+    },
+    {
+        "idLokasi": "11",
+        "lat":-7.2692369,
+        "long":107.8451763,
+        "namaTempat":"Desa Panembong",
+        "keterangan":"1 Unit Fasilitas Umum Terdampak "
+    
+    },
+    {
+        "idLokasi": "12",
+        "lat":-7.2682976,
+        "long":107.8130276,
+        "namaTempat":"Desa Mulyasari",
+        "keterangan":"2 KK terdampak "
+    
+    },
+    {
+        "idLokasi": "13",
+        "lat":-7.1966762,
+        "long":107.9891432,
+        "namaTempat":"Desa Sukaratu",
+        "keterangan":"1 Unit Fasilitas Umum Terdampak"
+    
+    },
+    {
+        "idLokasi": "14",
+        "lat":-7.2537242,
+        "long":107.9003538,
+        "namaTempat":"Desa Ngamplang",
+        "keterangan":"1 Unit Fasilitas Umum Terdampak"
+    
+    },
+    {
+        "idLokasi": "15",
+        "lat":-7.1973602,
+        "long":107.9317877,
+        "namaTempat":"Desa Mekarsari",
+        "keterangan":"11 Unit Rumah Terendam, 1 Unit Sarana Pendidikan Terendam"
+    
+    }
+]
