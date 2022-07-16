@@ -1,14 +1,21 @@
 {
-  "posts": [
-    { "id": 1, "title": "Post 1" },
-    { "id": 2, "title": "Post 2" },
-    { "id": 3, "title": "Post 3" }
+  "dataKoordinat": [
+    {
+      "idLokasi":1,
+      "lat":-7.216676451723694,
+      "long":107.90138301165639,
+      "namaTempat":"Babancong Garut",
+      "keterangan":"titik 1"
+    },
+    {
+      "idLokasi":"Cikajang",
+      "lat":-7.218248255832053,
+      "long":107.90181558304212,
+      "namaTempat":"SDN Regol 10",
+      "keterangan":"titik 2"
+    }
   ],
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 },
-    { "id": 2, "body": "some comment", "postId": 1 }
-  ],
-  "profile": {
+  "Source": {
     "name": "typicode"
   }
 }
