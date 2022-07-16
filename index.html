@@ -16,6 +16,15 @@
     max-width: 100%;
     max-height: 100%;
     }
+    p{
+        font-size: x-large;
+    }
+
+    @media only screen and (max-width: 600px) {
+    p {
+        font-size: x-large;
+    }
+}
 </style>
 </head>
 <body style="background-color: #1d2089;">
@@ -171,7 +180,7 @@
         namaTempatReplace = namaTempat.replace(/\s/g, '+')
         console.log(namaTempatReplace)
         L.marker([item.lat, item.long]).addTo(map)
-        .bindPopup(`<b>${item.namaTempat}</b><br><a href=https://www.google.com/maps/dir//${namaTempatReplace}/@${item.lat},${item.long}>Lokasi</a><br>${item.keterangan}`).openPopup();
+        .bindPopup(`<p><b>${item.namaTempat}</b><br><a href=https://www.google.com/maps/dir//${namaTempatReplace}/@${item.lat},${item.long}>Lokasi</a><br>${item.keterangan}</p>`).openPopup();
     })
 
 
