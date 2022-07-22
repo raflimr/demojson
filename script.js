@@ -8,7 +8,7 @@
    }
 });
 
-var iconMasyarakat = new LeafIcon({iconUrl: 'marker-red.png'}),
+var iconMasyarakat = new LeafIcon({iconUrl: 'marker-red2.png'}),
 iconPosko = new LeafIcon({iconUrl: 'marker-blue.png'})
 
 L.icon = function (options) {
@@ -31,6 +31,7 @@ fetch(url)
      var markerArray1 = []
      var markerArray2 = []
      var markerArray3 = []
+     var markerArray4 = []
 
      //indeks 0 diskip karena header
      for(i=1;i<values.length;i++){
@@ -46,31 +47,43 @@ fetch(url)
              markerArray1.push(L.marker([lat, long], {icon: iconMasyarakat}).bindPopup(`<p><b>${namaTempat}</b><br><a href=https://www.google.com/maps/dir//${namaTempatReplace}/@${lat},${long}>Lokasi</a><br>Dampak:<br>${formattedString}</p>`).openPopup());
         }else if (label == "posko"){
              markerArray2.push(L.marker([lat, long], {icon: iconPosko}).bindPopup(`<p><b>${namaTempat}</b><br><a href=https://www.google.com/maps/dir//${namaTempatReplace}/@${lat},${long}>Lokasi</a><br>Dampak:<br>${formattedString}</p>`).openPopup());
+        }else if(label == "sekolah"){
+             markerArray3.push(L.marker([lat, long], {icon: iconMasyarakat}).bindPopup(`<p><b>${namaTempat}</b><br><a href=https://www.google.com/maps/dir//${namaTempatReplace}/@${lat},${long}>Lokasi</a><br>Dampak:<br>${formattedString}</p>`).openPopup());
         }else{
-             markerArray3.push(L.marker([lat, long], {icon: iconMasyarakat}).bindPopup(`<p><b>${namaTempat}</b><br><a href=https://www.google.com/maps/dir//${namaTempatReplace}/@${lat},${long}>Lokasi</a><br>Dampak:<br>${formattedString}</p>`).openPopup());        }
+             markerArray4.push(L.marker([lat, long], {icon: iconMasyarakat}).bindPopup(`<p><b>${namaTempat}</b><br><a href=https://www.google.com/maps/dir//${namaTempatReplace}/@${lat},${long}>Lokasi</a><br>Dampak:<br>${formattedString}</p>`).openPopup());        }
          //document.getElementById("demo").innerHTML += alamat;
      }
      var masyarakat = L.layerGroup(markerArray1);
      var posko = L.layerGroup(markerArray2);
-     var jembatan = L.layerGroup(markerArray3);
+     var sekolah = L.layerGroup(markerArray3);
+     var jembatan = L.layerGroup(markerArray4);
      
        var map = L.map('map', {
           center: [-7.2162751,107.8990084],
           zoom: 13,
-          layers: [masyarakat, posko, jembatan]
+          minZoom: 0,
+          maxZoom: 18,
+          zoomSnap: 0,
+          zoomDelta: 0.25,
+          layers: [masyarakat, posko, sekolah, jembatan]
        });
 
-   var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-maxZoom: 19,
-attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
+      var cartodbAttribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attribution">CARTO</a>';
+   
+      var positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+         attribution: cartodbAttribution
+      }).addTo(map);
 
+      //  var tiles = L289.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      //  maxZoom: 19,
+      //  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      //  }).addTo(map);
   
      var layerControl = L.control.layers().addTo(map);
      layerControl.addOverlay(masyarakat, "Masyarakat").addTo(map);
      layerControl.addOverlay(posko, "Posko");
      layerControl.addOverlay(jembatan, "Jembatan");
-  
+     layerControl.addOverlay(sekolah, "Sekolah");
   });
 
 
