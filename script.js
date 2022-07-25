@@ -32,6 +32,8 @@ fetch(url)
      var markerArray2 = []
      var markerArray3 = []
      var markerArray4 = []
+     var markerArray5 = []
+     var markerArray6 = []
 
      //indeks 0 diskip karena header
      for(i=1;i<values.length;i++){
@@ -43,20 +45,26 @@ fetch(url)
         var label = values [i][5];
         var namaTempatReplace = namaTempat.replace(/\s/g, '+')
         var formattedString = keterangan.split(",").join("<br />")
-        if (label == "masyarakat"){
-             markerArray1.push(L.marker([lat, long], {icon: iconMasyarakat}).bindPopup(`<p><b>${namaTempat}</b><br><a href=https://www.google.com/maps/dir//${namaTempatReplace}/@${lat},${long}>Lokasi</a><br>Dampak:<br>${formattedString}</p>`).openPopup());
+        if (label == "Banjir"){
+             markerArray1.push(L.marker([lat, long], {icon: iconMasyarakat}).bindPopup(`<p><b>${namaTempat}</b><br><a href=https://www.google.com/maps/dir//${namaTempatReplace}/@${lat},${long}>Lokasi</a><br>Keterangan:<br>${formattedString}</p>`).openPopup());
+        }else if (label == "Longsor"){
+             markerArray2.push(L.marker([lat, long], {icon: iconMasyarakat}).bindPopup(`<p><b>${namaTempat}</b><br><a href=https://www.google.com/maps/dir//${namaTempatReplace}/@${lat},${long}>Lokasi</a><br>Keterangan:<br>${formattedString}</p>`).openPopup());
+        }else if (label == "Banjir dan Longsor"){
+             markerArray3.push(L.marker([lat, long], {icon: iconMasyarakat}).bindPopup(`<p><b>${namaTempat}</b><br><a href=https://www.google.com/maps/dir//${namaTempatReplace}/@${lat},${long}>Lokasi</a><br>Keterangan:<br>${formattedString}</p>`).openPopup());
         }else if (label == "posko"){
-             markerArray2.push(L.marker([lat, long], {icon: iconPosko}).bindPopup(`<p><b>${namaTempat}</b><br><a href=https://www.google.com/maps/dir//${namaTempatReplace}/@${lat},${long}>Lokasi</a><br>Dampak:<br>${formattedString}</p>`).openPopup());
+         markerArray4.push(L.marker([lat, long], {icon: iconPosko}).bindPopup(`<p><b>${namaTempat}</b><br><a href=https://www.google.com/maps/dir//${namaTempatReplace}/@${lat},${long}>Lokasi</a><br>Keterangan:<br>${formattedString}</p>`).openPopup());
         }else if(label == "sekolah"){
-             markerArray3.push(L.marker([lat, long], {icon: iconMasyarakat}).bindPopup(`<p><b>${namaTempat}</b><br><a href=https://www.google.com/maps/dir//${namaTempatReplace}/@${lat},${long}>Lokasi</a><br>Dampak:<br>${formattedString}</p>`).openPopup());
+             markerArray5.push(L.marker([lat, long], {icon: iconMasyarakat}).bindPopup(`<p><b>${namaTempat}</b><br><a href=https://www.google.com/maps/dir//${namaTempatReplace}/@${lat},${long}>Lokasi</a><br>Keterangan:<br>${formattedString}</p>`).openPopup());
         }else{
-             markerArray4.push(L.marker([lat, long], {icon: iconMasyarakat}).bindPopup(`<p><b>${namaTempat}</b><br><a href=https://www.google.com/maps/dir//${namaTempatReplace}/@${lat},${long}>Lokasi</a><br>Dampak:<br>${formattedString}</p>`).openPopup());        }
+             markerArray6.push(L.marker([lat, long], {icon: iconMasyarakat}).bindPopup(`<p><b>${namaTempat}</b><br><a href=https://www.google.com/maps/dir//${namaTempatReplace}/@${lat},${long}>Lokasi</a><br>Keterangan:<br>${formattedString}</p>`).openPopup());        }
          //document.getElementById("demo").innerHTML += alamat;
      }
-     var masyarakat = L.layerGroup(markerArray1);
-     var posko = L.layerGroup(markerArray2);
-     var sekolah = L.layerGroup(markerArray3);
-     var jembatan = L.layerGroup(markerArray4);
+     var banjir = L.layerGroup(markerArray1);
+     var longsor= L.layerGroup(markerArray2);
+     var banjirLongsor = L.layerGroup(markerArray3);
+     var posko = L.layerGroup(markerArray4);
+     var sekolah = L.layerGroup(markerArray5);
+     var jembatan = L.layerGroup(markerArray6);
      
        var map = L.map('map', {
           center: [-7.2162751,107.8990084],
@@ -65,7 +73,7 @@ fetch(url)
           maxZoom: 18,
           zoomSnap: 0,
           zoomDelta: 0.25,
-          layers: [masyarakat, posko, sekolah, jembatan]
+          layers: [banjir, longsor, banjirLongsor, posko, sekolah, jembatan]
        });
 
       var cartodbAttribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attribution">CARTO</a>';
@@ -80,7 +88,9 @@ fetch(url)
       //  }).addTo(map);
   
      var layerControl = L.control.layers().addTo(map);
-     layerControl.addOverlay(masyarakat, "Masyarakat").addTo(map);
+     layerControl.addOverlay(banjir, "Banjir").addTo(map);
+     layerControl.addOverlay(longsor, "Longsor");
+     layerControl.addOverlay(banjirLongsor, "Banjir dan Longsor");
      layerControl.addOverlay(posko, "Posko");
      layerControl.addOverlay(jembatan, "Jembatan");
      layerControl.addOverlay(sekolah, "Sekolah");
